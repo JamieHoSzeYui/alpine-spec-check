@@ -1,0 +1,45 @@
+name: Building GSI..
+
+on:
+#  release:
+#    types: [published]
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - '.config'
+#  schedule:
+#    - cron: 0 8 * * 5
+  watch:
+    types: [started]
+  
+  TZ: Asia/Shanghai
+
+jobs:
+  build:
+    runs-on: alpine-edge
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    steps:
+       - name: Checkout
+         uses: actions/checkout@master
+           
+       - name: Initializing environment
+         run: |
+              apk add neofetch lshw
+       
+       - name: Neofetch
+         run: neofetch --stdout
+       
+       - name: lshw
+         run: |
+              lshw -short
+       
+       - name: Drive info
+         run: df -h
+       
+       - name: Mountpoint info
+         run: |
+              lsblk      
+
+         
