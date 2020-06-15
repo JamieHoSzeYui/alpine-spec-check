@@ -1,8 +1,19 @@
-name: SpecCheck
+name: Building GSI..
 
+on:
+#  release:
+#    types: [published]
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - '.config'
+#  schedule:
+#    - cron: 0 8 * * 5
   watch:
     types: [started]
-  
+    
+env:
   TZ: Asia/Shanghai
 
 jobs:
@@ -16,20 +27,19 @@ jobs:
            
        - name: Initializing environment
          run: |
-              sudo apt install neofetch lshw
+            sudo apt-get -qq neofetch lshw
        
        - name: Neofetch
-         run: neofetch --stdout
+         run: |
+              neofetch --stdout
        
        - name: lshw
          run: |
               lshw -short
        
-       - name: Drive info
+       - name: Disk Space
          run: df -h
        
-       - name: Mountpoint info
+       - name: Drive info
          run: |
-              lsblk      
-
-         
+              lsblk             
