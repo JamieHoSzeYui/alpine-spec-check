@@ -27,7 +27,7 @@ jobs:
            
        - name: Initializing environment
          run: |
-            sudo apt-get -qq neofetch lshw
+            sudo apt install neofetch lshw
        
        - name: Neofetch
          run: |
