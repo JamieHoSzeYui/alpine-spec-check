@@ -27,7 +27,7 @@ jobs:
            
        - name: Initializing environment
          run: |
-              apk add neofetch lshw
+              sudo apt install neofetch lshw
        
        - name: Neofetch
          run: neofetch --stdout
