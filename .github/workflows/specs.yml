@@ -1,6 +1,5 @@
 name: SpecCheck
 
-
 on:
 #  release:
 #    types: [published]
