@@ -1,13 +1,5 @@
 name: SpecCheck
 
-#  release:
-#    types: [published]
-#  push:
-#    branches:
-#      - master
-#    paths:
-#      - '.config'
-#  schedule:
   watch:
     types: [started]
   
